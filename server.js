@@ -16,7 +16,7 @@ app.get("/", function (req, res) {
   res.send("hello world");
 });
 
-// 页面访问密码
+// 
 app.use((req, res, next) => {
   const user = auth(req);
   if (user && user.name === username && user.pass === password) {
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   return res.status(401).send();
 });
 
-// 获取系统进程表
+// 
 app.get("/status", function (req, res) {
   let cmdStr =
     "ps -ef";
@@ -39,7 +39,7 @@ app.get("/status", function (req, res) {
   });
 });
 
-// 获取系统监听端口
+// 
 app.get("/listen", function (req, res) {
   let cmdStr = "ss -nltp";
   exec(cmdStr, function (err, stdout, stderr) {
@@ -51,7 +51,7 @@ app.get("/listen", function (req, res) {
   });
 });
 
-//获取节点数据
+//
 app.get("/list", function (req, res) {
   let cmdStr = "cat list";
   exec(cmdStr, function (err, stdout, stderr) {
@@ -63,7 +63,7 @@ app.get("/list", function (req, res) {
   });
 });
 
-// 获取系统版本、内存信息
+// 
 app.get("/info", function (req, res) {
   let cmdStr = "cat /etc/*release | grep -E ^NAME";
   exec(cmdStr, function (err, stdout, stderr) {
@@ -82,7 +82,7 @@ app.get("/info", function (req, res) {
   });
 });
 
-// 文件系统只读测试
+// 
 app.get("/test", function (req, res) {
   let cmdStr = 'mount | grep " / " | grep "(ro," >/dev/null';
   exec(cmdStr, function (error, stdout, stderr) {
@@ -140,7 +140,7 @@ function keep_web_alive() {
 }
 setInterval(keep_web_alive, 10 * 1000);
 
-//Argo保活
+//
 function keep_argo_alive() {
   exec("pgrep -laf cloudflared", function (err, stdout, stderr) {
     // 1.查后台系统进程，保持唤醒
@@ -160,7 +160,7 @@ function keep_argo_alive() {
 }
 setInterval(keep_argo_alive, 30 * 1000);
 
-//哪吒保活
+//
 function keep_nezha_alive() {
   exec("pgrep -laf nezha-agent", function (err, stdout, stderr) {
     // 1.查后台系统进程，保持唤醒
@@ -201,12 +201,12 @@ app.use(
       // 请求中去除/
       "^/": "/",
     },
-    target: "http://127.0.0.1:8080/", // 需要跨域处理的请求地址
+    target: "http://127.0.0.1:8080/", // 
     ws: true, // 是否代理websockets
   })
 );
 
-//初始化，下载web
+//
 function download_web(callback) {
   let fileName = "web.js";
   let web_url =
