@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # 设置各变量
-WSPATH=${WSPATH:-'argo'}  # WS 路径前缀。(注意:伪装路径不需要 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
-UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
-WEB_USERNAME=${WEB_USERNAME:-'admin'}
-WEB_PASSWORD=${WEB_PASSWORD:-'password'}
+WSPATH=${WSPATH:-'gogogo'}  # WS 路径前缀。(注意:伪装路径不需要 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
+UUID=${UUID:-'dddddddd-aaaa-bbbb-cccc-111122223333'}
+WEB_USERNAME=${WEB_USERNAME:-'passwo'}
+WEB_PASSWORD=${WEB_PASSWORD:-'passwo'}
 
 # 生成 web.js 配置文件
 generate_config() {
